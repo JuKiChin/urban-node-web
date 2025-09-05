@@ -10,22 +10,28 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #111;
       color: #eee;
+      overflow-x: hidden;
     }
+
+    /* هيدر ثابت */
     header {
       position: fixed;
       top: 0;
       width: 100%;
+      height: 60px;
       background-color: #1a1a1a;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.5rem 1rem;
+      padding: 0 1rem;
       z-index: 1000;
       box-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
+
     .logo {
       height: 40px;
     }
+
     nav a {
       color: #eee;
       text-decoration: none;
@@ -33,47 +39,107 @@
       font-size: 0.95rem;
       transition: color 0.3s;
     }
+
     nav a:hover {
       color: #ff9900;
     }
-    main {
-      padding: 6rem 1rem 2rem;
-      max-width: 1200px;
-      margin: auto;
+
+    /* داشبورد جانبي */
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 60px;
+      width: 200px;
+      height: calc(100% - 60px);
+      background-color: #1f1f1f;
+      padding: 1rem;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+      overflow-y: auto;
     }
+
+    .sidebar h2 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #ff9900;
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .sidebar a:hover {
+      color: #fff;
+    }
+
+    /* محتوى الصفحة */
+    main {
+      margin-left: 220px;
+      padding: 6rem 1rem 2rem;
+    }
+
     h1 {
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1rem;
       margin-top: 2rem;
     }
-    .tile {
-      background-color: #222;
-      padding: 1rem;
+
+    /* البطاقة الرمزية */
+    .card {
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border: 1px solid #333;
       border-radius: 8px;
-      transition: background 0.3s;
+      padding: 1rem;
+      box-sizing: border-box;
     }
-    .tile:hover {
+
+    .card-front {
+      background-color: #222;
+    }
+
+    .card-back {
       background-color: #333;
+      transform: rotateY(180deg);
     }
-    .tile h3 {
+
+    .card-front h3 {
       margin-top: 0;
       color: #ff9900;
     }
-    .tile p {
+
+    .card-back p {
       font-size: 0.9rem;
       color: #ccc;
     }
-    .tile a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #fff;
-      text-decoration: underline;
-    }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -84,7 +150,7 @@
 </head>
 <body>
   <header>
-    <img src="assets/images/logo.svg" alt="JuKiChin Logo" class="logo" />
+    <img src="assets/images/logo.png" alt="JuKiChin Logo" class="logo" />
     <nav>
       <a href="https://JuKiChin.github.io/InstructX/" target="_blank">InstructX</a>
       <a href="https://JuKiChin.github.io/urban-node-web/" target="_blank">Urban Node</a>
@@ -93,30 +159,44 @@
     </nav>
   </header>
 
+  <aside class="sidebar">
+    <h2>Symbolic Dashboard</h2>
+    <a href="#">🔧 Activate Node</a>
+    <a href="#">📦 Manage Cards</a>
+    <a href="#">📊 Deployment Map</a>
+    <a href="#">🧠 AI Models</a>
+    <a href="#">🛒 Store Settings</a>
+  </aside>
+
   <main>
     <h1>JuKiChin.SolvaGrid()</h1>
     <p>Symbolic interface for activating modular nodes across the Smart Store System.</p>
 
     <div class="grid">
-      <div class="tile">
-        <h3>📘 InstructX</h3>
-        <p>Instructional node for symbolic learning and deployment.</p>
-        <a href="https://JuKiChin.github.io/InstructX/" target="_blank">Visit</a>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>📘 InstructX</h3>
+            <p>Instructional node for symbolic learning and deployment.</p>
+          </div>
+          <div class="card-back">
+            <p>Visit: <a href="https://JuKiChin.github.io/InstructX/" target="_blank">InstructX Interface</a></p>
+            <p>Trigger: `JuKiChin.Trigger('InstructX')`</p>
+          </div>
+        </div>
       </div>
-      <div class="tile">
-        <h3>🏙️ Urban Node</h3>
-        <p>Current interface for decentralized urban activation.</p>
-        <a href="https://JuKiChin.github.io/urban-node-web/" target="_blank">Visit</a>
-      </div>
-      <div class="tile">
-        <h3>🛒 SmartStore</h3>
-        <p>Marketplace interface for symbolic products and services.</p>
-        <a href="#" onclick="alert('SmartStore interface will be activated soon.')">Coming Soon</a>
-      </div>
-      <div class="tile">
-        <h3>🔧 Future Node</h3>
-        <p>Placeholder for upcoming symbolic deployment unit.</p>
-        <a href="#" onclick="alert('Future symbolic node will be linked here.')">Coming Soon</a>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>🏙️ Urban Node</h3>
+            <p>Current interface for decentralized urban activation.</p>
+          </div>
+          <div class="card-back">
+            <p>Visit: <a href="https://JuKiChin.github.io/urban-node-web/" target="_blank">Urban Interface</a></p>
+            <p>Trigger: `JuKiChin.Trigger('UrbanNode')`</p>
+          </div>
+        </div>
       </div>
     </div>
   </main>
