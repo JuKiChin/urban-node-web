@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JuKiChin – Symbolic Operating System</title>
+  <title>JuKiChin – النظام الرمزي</title>
   <style>
     body {
       margin: 0;
@@ -41,6 +41,16 @@
 
     nav a:hover {
       color: #ff9900;
+    }
+
+    .lang-switch {
+      background: #ff9900;
+      color: #000;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     main {
@@ -98,66 +108,67 @@
   <header>
     <img src="assets/images/logo.png" alt="JuKiChin Logo" class="logo" />
     <nav>
-      <a href="index.html">Home</a>
-      <a href="units.html">Units</a>
-      <a href="trigger.html">Trigger</a>
-      <a href="docs.html">Docs</a>
-      <a href="network.html">Network</a>
+      <a href="index.html" id="nav-home">الرئيسية</a>
+      <a href="units.html" id="nav-units">الوحدات</a>
+      <a href="trigger.html" id="nav-trigger">التفعيل</a>
+      <a href="docs.html" id="nav-docs">التوثيق</a>
+      <a href="network.html" id="nav-network">الشبكة</a>
     </nav>
+    <button class="lang-switch" onclick="switchLang()">English</button>
   </header>
 
   <main>
-    <h1>JuKiChin</h1>
-    <p>A symbolic operating system for activating modular intelligence across distributed environments.</p>
+    <h1 id="title">JuKiChin</h1>
+    <p id="intro">نظام تشغيل رمزي لتفعيل الذكاء المعياري عبر بيئات موزّعة.</p>
 
     <div class="section">
-      <h2>🔧 Core Repositories</h2>
+      <h2 id="repos-title">🔧 المستودعات الأساسية</h2>
       <ul>
         <li><a href="https://github.com/JuKiChin/urban-node-web" target="_blank">Urban Node Web</a></li>
         <li><a href="https://github.com/JuKiChin/InstructX" target="_blank">InstructX</a></li>
         <li><a href="https://github.com/JuKiChin/store" target="_blank">Symbolic Store</a></li>
       </ul>
     </div>
-
-    <div class="section">
-      <h2>📦 Symbolic Units</h2>
-      <ul>
-        <li><a href="units.html#solvagrid">SolvaGrid Node</a></li>
-        <li><a href="units.html#smartstore">SmartStore Interface</a></li>
-        <li><a href="units.html#learnnode">LearnNode</a></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🚀 Activation Gateway</h2>
-      <ul>
-        <li><a href="trigger.html">JuKiChin.Trigger()</a></li>
-        <li><a href="trigger.html#recommend">Symbolic Recommendations</a></li>
-        <li><a href="trigger.html#export">Export Models</a></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>📚 Documentation</h2>
-      <ul>
-        <li><a href="docs.html">System Philosophy</a></li>
-        <li><a href="docs.html#structure">Node Structure</a></li>
-        <li><a href="docs.html#cards">Card Logic</a></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🌐 Network</h2>
-      <ul>
-        <li><a href="network.html">Connected Organizations</a></li>
-        <li><a href="network.html#partners">Symbolic Partners</a></li>
-        <li><a href="network.html#feeds">Live Feeds</a></li>
-      </ul>
-    </div>
   </main>
 
   <footer>
-    Powered by <strong>JuKiChin.Trigger()</strong> • Operated by Solvanix • © 2025 JuKiChin System
+    <span id="footer-text">تشغله JuKiChin.Trigger() • تديره Solvanix • © 2025 JuKiChin</span>
   </footer>
+
+  <script>
+    const strings = {
+      ar: {
+        nav: ["الرئيسية", "الوحدات", "التفعيل", "التوثيق", "الشبكة"],
+        title: "JuKiChin",
+        intro: "نظام تشغيل رمزي لتفعيل الذكاء المعياري عبر بيئات موزّعة.",
+        repos: "🔧 المستودعات الأساسية",
+        footer: "تشغله JuKiChin.Trigger() • تديره Solvanix • © 2025 JuKiChin"
+      },
+      en: {
+        nav: ["Home", "Units", "Trigger", "Docs", "Network"],
+        title: "JuKiChin",
+        intro: "A symbolic operating system for activating modular intelligence across distributed environments.",
+        repos: "🔧 Core Repositories",
+        footer: "Powered by JuKiChin.Trigger() • Operated by Solvanix • © 2025 JuKiChin"
+      }
+    };
+
+    function switchLang() {
+      const current = document.documentElement.lang;
+      const next = current === "ar" ? "en" : "ar";
+      document.documentElement.lang = next;
+      document.documentElement.dir = next === "ar" ? "rtl" : "ltr";
+      const s = strings[next];
+      document.getElementById("nav-home").textContent = s.nav[0];
+      document.getElementById("nav-units").textContent = s.nav[1];
+      document.getElementById("nav-trigger").textContent = s.nav[2];
+      document.getElementById("nav-docs").textContent = s.nav[3];
+      document.getElementById("nav-network").textContent = s.nav[4];
+      document.getElementById("title").textContent = s.title;
+      document.getElementById("intro").textContent = s.intro;
+      document.getElementById("repos-title").textContent = s.repos;
+      document.getElementById("footer-text").textContent = s.footer;
+    }
+  </script>
 </body>
 </html>
