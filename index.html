@@ -3,67 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JuKiChin Urban Node</title>
+  <title>JuKiChin – Urban Node Web</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #111;
       color: #eee;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
     header {
-      text-align: center;
-      padding: 2rem 1rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
     .logo {
-      width: 100px;
-      height: auto;
-      margin-bottom: 1rem;
+      height: 40px;
+    }
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff9900;
+    }
+    main {
+      padding: 6rem 1rem 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
     h1 {
       font-size: 2rem;
-      margin: 0;
+      margin-bottom: 0.5rem;
     }
-    .subtitle {
-      font-size: 1rem;
-      color: #aaa;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
     }
-    .navigation {
-      margin: 2rem 0;
-      width: 100%;
-      max-width: 600px;
-    }
-    .navigation h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-      color: #ccc;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 0.5rem 0;
-    }
-    a {
-      display: block;
-      padding: 0.75rem 1rem;
+    .tile {
       background-color: #222;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
+      padding: 1rem;
+      border-radius: 8px;
       transition: background 0.3s;
     }
-    a:hover {
-      background-color: #444;
+    .tile:hover {
+      background-color: #333;
+    }
+    .tile h3 {
+      margin-top: 0;
+      color: #ff9900;
+    }
+    .tile p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .tile a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #fff;
+      text-decoration: underline;
     }
     footer {
-      margin-top: auto;
-      padding: 1rem;
-      font-size: 0.9rem;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
       color: #666;
     }
   </style>
@@ -71,29 +85,44 @@
 <body>
   <header>
     <img src="assets/images/logo.svg" alt="JuKiChin Logo" class="logo" />
-    <h1>JuKiChin.SolvaGrid()</h1>
-    <p class="subtitle">Symbolic Activation Node within the Smart Store System</p>
+    <nav>
+      <a href="https://JuKiChin.github.io/InstructX/" target="_blank">InstructX</a>
+      <a href="https://JuKiChin.github.io/urban-node-web/" target="_blank">Urban Node</a>
+      <a href="#" onclick="alert('SmartStore interface will be activated soon.')">SmartStore</a>
+      <a href="#" onclick="alert('Future symbolic node will be linked here.')">Future Node</a>
+    </nav>
   </header>
 
   <main>
-    <section class="navigation">
-      <h2>Symbolic Interfaces</h2>
-      <ul>
-        <li><a href="https://JuKiChin.github.io/InstructX/" target="_blank">📘 InstructX – Instructional Node</a></li>
-        <li><a href="https://JuKiChin.github.io/urban-node-web/" target="_blank">🏙️ Urban Node – Current Interface</a></li>
-        <li><a href="#" onclick="alert('SmartStore interface will be activated soon.')">🛒 SmartStore – Marketplace Interface</a></li>
-        <li><a href="#" onclick="alert('Future symbolic node will be linked here.')">🔧 Future Node – Symbolic Deployment</a></li>
-      </ul>
-    </section>
+    <h1>JuKiChin.SolvaGrid()</h1>
+    <p>Symbolic interface for activating modular nodes across the Smart Store System.</p>
+
+    <div class="grid">
+      <div class="tile">
+        <h3>📘 InstructX</h3>
+        <p>Instructional node for symbolic learning and deployment.</p>
+        <a href="https://JuKiChin.github.io/InstructX/" target="_blank">Visit</a>
+      </div>
+      <div class="tile">
+        <h3>🏙️ Urban Node</h3>
+        <p>Current interface for decentralized urban activation.</p>
+        <a href="https://JuKiChin.github.io/urban-node-web/" target="_blank">Visit</a>
+      </div>
+      <div class="tile">
+        <h3>🛒 SmartStore</h3>
+        <p>Marketplace interface for symbolic products and services.</p>
+        <a href="#" onclick="alert('SmartStore interface will be activated soon.')">Coming Soon</a>
+      </div>
+      <div class="tile">
+        <h3>🔧 Future Node</h3>
+        <p>Placeholder for upcoming symbolic deployment unit.</p>
+        <a href="#" onclick="alert('Future symbolic node will be linked here.')">Coming Soon</a>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <p>Powered by <strong>JuKiChin.Trigger()</strong> • Operated by Ali Ahmad Khateeb</p>
+    Powered by <strong>JuKiChin.Trigger()</strong> • Operated by Ali Ahmad Khateeb
   </footer>
-
-  <script>
-    // Placeholder for future symbolic logic
-    console.log("JuKiChin Urban Node Interface Loaded.");
-  </script>
 </body>
 </html>
